@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paint</title>
+
+</head>
+<body style='margin: 0;'>
+
+
+	<div class='text'>
+		Draw and...
+		Type: S to save, C to clear, R to repeat
+	</div>
+
+	<canvas id='main-canvas'>Your browser doesn't support canvas elements</canvas>
+
+
+
+
+<script>
+	var canvas = document.getElementById('main-canvas');
+	var ctx = canvas.getContext('2d');
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+
+	var isMouseDown = false;
+
+	var coordinates = [];
+
+	canvas.addEventListener('mousedown', function() {
+		isMouseDown = true;
+	});
+
+	canvas.addEventListener('mouseup', function() {
+		isMouseDown = false;
+		ctx.beginPath();
+		coordinates.push('mouseup');
+	})
+
+	ctx.lineWidth = 10;
+
+	canvas.addEventListener('mousemove', function(e) {
+		if (isMouseDown) {
+
+			coordinates.push([e.clientX, e.clientY]);
+
+			ctx.lineTo(e.clientX, e.clientY);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(e.clientX, e.clientY, 5, 0, Math.PI * 2);
+			ctx.fill();
+
+			ctx.beginPath();;
+			ctx.moveTo(e.clientX, e.clientY);
+
+		}
+
+	});
+
+	function clear() {
+		ctx.fillStyle = '#eee';
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+		ctx.beginPath();
+		ctx.fillStyle = 'black';
+	}
+
+	function save() {
+		localStorage.setItem('coordinates', JSON.stringify(coordinates));
+	}
+
+	function replay() {
+		var timer = setInterval(function() {
+			if ( !coordinates.length){
+				clearInterval(timer);
+				ctx.beginPath();
+				return;
+			}
+
+			var coord = coordinates.shift();
+			var event = {
+				clientX: coord[0],
+				clientY: coord[1],
+			}
+
+			ctx.lineTo(event.clientX, event.clientY);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(event.clientX, event.clientY, 5, 0, Math.PI * 2);
+			ctx.fill();
+
+			ctx.beginPath();;
+			ctx.moveTo(event.clientX, event.clientY);
+
+		}, 20);
+	}
+
+	document.addEventListener('keydown', function(e) {
+		console.log(e.keyCode);
+		var saveKey = 83;
+		var repeatKey = 82;
+		var clearKey = 67;
+
+		if ( e.keyCode === saveKey ) {
+			save();
+			console.log('Saved');
+		}
+
+		if ( e.keyCode === repeatKey ) {
+			console.log('Replaing ...');
+			coordinates = JSON.parse(localStorage.getItem('coordinates'));
+			clear();
+			replay();
+		}
+
+		if ( e.keyCode === clearKey ) {
+			clear();
+			console.log('Cleared');
+		}
+
+
+	});
+
+
+</script>
+
+</body>
+</html>

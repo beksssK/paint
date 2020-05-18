@@ -1,0 +1,13 @@
+#main-canvas {
+    display: block;
+    background: #eeeeee;
+
+}
+.text {
+    width: 40%;
+    position: absolute;
+    top: 20px;
+    right: 50%;
+    height: 100px;
+    transform: translateX(50%);
+}
