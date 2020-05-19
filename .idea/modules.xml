@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/canvasModern.iml" filepath="$PROJECT_DIR$/.idea/canvasModern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../canvasModern/.idea/canvasModern.iml" filepath="$PROJECT_DIR$/../canvasModern/.idea/canvasModern.iml" />
     </modules>
   </component>
 </project>
