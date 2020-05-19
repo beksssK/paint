@@ -40,7 +40,7 @@ const palette = [
 ];
 
 function createCol(i) {
-    return (`<td data-color=${palette[i].code} style="background: ${palette[i].code}"></td>`)
+    return (`<td class="my-color" data-color_name=${palette[i].name} data-color=${palette[i].code} style="background: ${palette[i].code}"></td>`)
 }
 
 function createRow(content) {

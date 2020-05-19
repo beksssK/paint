@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f1e3054-04ac-4a55-8371-89118d803c48" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-color-picker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/canvasModern.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/canvasModern.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-color-picker.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-color-picker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-painter.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-painter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/paint.html" beforeDir="false" afterPath="$PROJECT_DIR$/paint.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
@@ -54,7 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589812019124</updated>
       <workItem from="1589812020855" duration="8232000" />
-      <workItem from="1589897011123" duration="6037000" />
+      <workItem from="1589897011123" duration="10189000" />
     </task>
     <servers />
   </component>

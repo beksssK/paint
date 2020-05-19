@@ -1,3 +1,36 @@
+let mainColor = 'black';
+let lineWidth = 10;
+function changeColor(color) {
+    mainColor = color;
+}
+
+const colorTds = document.querySelectorAll('.my-color');
+const currentColor = document.getElementById('current-color');
+
+const lineWidthInput = document.getElementById('line-width');
+
+lineWidthInput.oninput = function (e) {
+    console.log(this.value);
+    lineWidth = this.value;
+};
+
+function removeClasses() {
+    colorTds.forEach(colorTd => {
+        colorTd.classList.remove('active-color');
+    })
+}
+
+colorTds.forEach(colorTd => {
+    colorTd.addEventListener('click', function () {
+        changeColor(this.dataset.color);
+        removeClasses();
+        this.classList.add('active-color');
+        currentColor.style.background = this.dataset.color;
+    });
+
+});
+
+
 
 let canvas = document.getElementById('main-canvas');
 let ctx = canvas.getContext('2d');
@@ -5,6 +38,9 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let isMouseDown = false;
 let coordinates = [];
+
+
+
 canvas.addEventListener('mousedown', function() {
     isMouseDown = true;
 });
@@ -13,14 +49,17 @@ canvas.addEventListener('mouseup', function() {
     ctx.beginPath();
     coordinates.push('mouseup');
 });
-ctx.lineWidth = 10;
 
-function drawLines (event) {
+ctx.lineWidth = lineWidth;
+
+
+function drawLines (event, width) {
+    ctx.lineWidth = width;
     ctx.lineTo(event.clientX, event.clientY);
     ctx.stroke();
 
     ctx.beginPath();
-    ctx.arc(event.clientX, event.clientY, 5, 0, Math.PI * 2);
+    ctx.arc(event.clientX, event.clientY, width/2, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.beginPath();
@@ -29,8 +68,10 @@ function drawLines (event) {
 
 canvas.addEventListener('mousemove', function(e) {
     if (isMouseDown) {
-        coordinates.push([e.clientX, e.clientY]);
-        drawLines(e);
+        coordinates.push([e.clientX, e.clientY, mainColor, lineWidth]);
+        ctx.strokeStyle = mainColor;
+        ctx.fillStyle = mainColor;
+        drawLines(e, lineWidth);
     }
 });
 
@@ -39,7 +80,8 @@ function clear() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.beginPath();
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = mainColor;
+    ctx.strokeStyle = mainColor;
 }
 
 function save() {
@@ -58,7 +100,9 @@ function replay() {
             clientX: coord[0],
             clientY: coord[1],
         };
-        drawLines(event);
+        ctx.fillStyle = coord[2];
+        ctx.strokeStyle = coord[2];
+        drawLines(event, coord[3]);
     }, 20);
 }
 

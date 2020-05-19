@@ -27,17 +27,34 @@ table {
     box-shadow: 0 14px 20px -8px rgba(0,0,0,0.75);
 }
 
-#color-table {
-    width: 85%;
-    height: 100%;
-}
+
 
 #color-table td,
 #color-table th {
+    position: relative;
     border: 1px solid #03c6fc;
 }
 
+#color-table td:hover {
+    transform: scale(1.2);
+    z-index: 11;
+}
+
+#color-table td.active-color:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #03c6fc;
+    right: -3px;
+    top: -3px;
+    z-index: 10;
+}
+
 .page-top__left {
+    display: flex;
     border-right: 1px solid #03c6fc;
 }
 
@@ -53,4 +70,14 @@ table {
 .page-top__item {
     width: 33.33%;
 
+}
+
+#color-table {
+    width: 85%;
+    height: 100%;
+}
+
+#current-color {
+    width: 15%;
+    background: #000;
 }
