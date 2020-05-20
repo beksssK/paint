@@ -8,11 +8,18 @@
 	<div class="page-top">
 		<div class="page-top__left page-top__item">
 			<table id="color-table"></table>
-			<div id="current-color"></div>
+			<div class="current-color__wrapper">
+				<div id="current-color"></div>
+			</div>
 		</div>
 		<div class="page-top__center page-top__item">
-			<label for="line-width">Width</label>
-			<input type="number" id="line-width" >
+			<div class='line-width__wrapper'>
+				<div>
+					<label for="line-width"></label>
+					<input type="range" min="1" max="50" id="line-width">
+				</div>
+
+			</div>
 		</div>
 		<div class="page-top__right page-top__item">
 

@@ -77,7 +77,32 @@ table {
     height: 100%;
 }
 
-#current-color {
+.current-color__wrapper {
     width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#current-color {
     background: #000;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#line-width {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #03c6fc;
+    opacity: 0.7;
+    outline: none;
+    transform: rotate(-90deg);
+    top: 22px;
+    width: 55px;
+    position: relative;
+}
+
+#line-width:hover {
+    opacity: 1;
 }

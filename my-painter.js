@@ -9,9 +9,12 @@ const currentColor = document.getElementById('current-color');
 
 const lineWidthInput = document.getElementById('line-width');
 
+lineWidthInput.value = lineWidth;
+currentColor.style.cssText = `width: ${lineWidth}px; height: ${lineWidth}px`;
+
 lineWidthInput.oninput = function (e) {
-    console.log(this.value);
     lineWidth = this.value;
+    currentColor.style.cssText = `width: ${this.value}px; height: ${this.value}px`;
 };
 
 function removeClasses() {
