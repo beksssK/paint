@@ -7,13 +7,26 @@ function changeColor(color) {
 const colorTds = document.querySelectorAll('.my-color');
 const currentColor = document.getElementById('current-color');
 
+
+
 const lineWidthInput = document.getElementById('line-width');
+const lineWidthNumber = document.getElementById('line-width-number');
 
 lineWidthInput.value = lineWidth;
+lineWidthNumber.value = lineWidth;
+
+
 currentColor.style.cssText = `width: ${lineWidth}px; height: ${lineWidth}px`;
+
+lineWidthNumber.oninput = function(e) {
+    lineWidth = this.value;
+    lineWidthInput.value = this.value;
+    currentColor.style.cssText = `width: ${this.value}px; height: ${this.value}px`;
+};
 
 lineWidthInput.oninput = function (e) {
     lineWidth = this.value;
+    lineWidthNumber.value = this.value;
     currentColor.style.cssText = `width: ${this.value}px; height: ${this.value}px`;
 };
 
