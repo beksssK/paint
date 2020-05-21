@@ -73,7 +73,6 @@ table {
     transform: translate(-50%, 5px) scale(1);
 }
 
-
 .my-color:after {
     content: '';
     border-style: solid;
@@ -86,14 +85,21 @@ table {
     transform-origin: bottom;
 }
 
-
-
 .my-color:hover:after {
     visibility: visible;
     opacity: 1;
     transition-delay: 0.5s; /* Starting after the grow effect */
     transition-duration: 0.2s;
     transform: translateX(-50%) scaleY(1);
+}
+
+.active-color:after{
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.5s; /* Starting after the grow effect */
+    transition-duration: 0.2s;
+    transform: translateX(-50%) scaleY(1);
+    z-index: 13;
 }
 
 
