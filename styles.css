@@ -27,6 +27,75 @@ table {
     box-shadow: 0 14px 20px -8px rgba(0,0,0,0.75);
 }
 
+.my-color {
+    position: relative;
+}
+
+.my-color:before,
+.my-color:after {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left: 50%;
+    pointer-events: none;
+    transition: 0.2s;
+    will-change: transform;
+    top: calc(100% + 5px);
+    bottom: auto;
+}
+
+.my-color:before {
+    content: attr(data-color_name);
+    padding: 8px 12px;
+    min-width: 50px;
+    max-width: 300px;
+    width: max-content;
+    width: -moz-max-content;
+    border-radius: 6px;
+    font-size: 12px;
+    /*   font-size: 0.73rem; */
+    background-color: rgba(59, 72, 80, 0.9);
+    background-image: linear-gradient(30deg,
+    rgba(59, 72, 80, 0.44),
+    rgba(59, 68, 75, 0.44),
+    rgba(60, 82, 88, 0.44));
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center;
+    white-space: pre-wrap;
+    transform: translate(-50%, 5px) scale(0.5);
+}
+
+.my-color:hover:before {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.3s;
+    transform: translate(-50%, 5px) scale(1);
+}
+
+
+.my-color:after {
+    content: '';
+    border-style: solid;
+    transition-duration: 0s; /* If the mouse leaves the element,
+                              the transition effects for the
+                              tooltip arrow are "turned off" */
+    transform: translateX(-50%) scaleY(0);
+    border-width: 0px 5px 5px 5px;
+    border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+    transform-origin: bottom;
+}
+
+
+
+.my-color:hover:after {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.5s; /* Starting after the grow effect */
+    transition-duration: 0.2s;
+    transform: translateX(-50%) scaleY(1);
+}
+
 
 
 #color-table td,
@@ -35,34 +104,11 @@ table {
     border: 1px solid #03c6fc;
 }
 
-/*#color-table td::after {*/
-/*    position: absolute;*/
-/*    content: 'color';*/
-/*    bottom: -3px;*/
-/*    transform: translateX(50%);*/
-/*    right: 50%;*/
-/*    color: #fff;*/
-/*    font-size: 12px;*/
-/*    background: rgba(0, 0, 0, 0.4);*/
-/*}*/
-
 #color-table td:hover {
     transform: scale(1.2);
     z-index: 11;
 }
 
-#color-table td.active-color:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-width: 3px;
-    border-style: solid;
-    border-color: #03c6fc;
-    right: -3px;
-    top: -3px;
-    z-index: 10;
-}
 
 .page-top__left {
     display: flex;
