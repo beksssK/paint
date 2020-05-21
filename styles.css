@@ -99,6 +99,7 @@ table {
 
 .main-button {
     background: #03c6fc;
+    outline: none;
     border-color: #157cfc;
     border-radius: 8px;
     padding: 5px 10px;
@@ -137,7 +138,6 @@ table {
     width: 70%;
     cursor: pointer;
 }
-
 
 #line-width-number {
     margin-left: 32px;

@@ -1,4 +1,4 @@
-let mainColor = 'black';
+let mainColor = '#000000';
 let lineWidth = 10;
 function changeColor(color) {
     mainColor = color;
@@ -159,6 +159,7 @@ clearBtn.addEventListener('click', function () {
 });
 
 repeatBtn.addEventListener('click', function () {
+    clear();
     replay();
 });
 
