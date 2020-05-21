@@ -7,6 +7,9 @@ function changeColor(color) {
 const colorTds = document.querySelectorAll('.my-color');
 const currentColor = document.getElementById('current-color');
 
+const saveButton = document.getElementById('save-btn');
+const clearBtn = document.getElementById('clear-btn');
+const repeatBtn = document.getElementById('repeat-btn');
 
 
 const lineWidthInput = document.getElementById('line-width');
@@ -122,6 +125,8 @@ function replay() {
     }, 20);
 }
 
+
+
 document.addEventListener('keydown', function(e) {
     let saveKey = 83;
     let repeatKey = 82;
@@ -145,7 +150,17 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+saveButton.addEventListener('click', function () {
+    save();
+});
 
+clearBtn.addEventListener('click', function () {
+    clear();
+});
+
+repeatBtn.addEventListener('click', function () {
+    replay();
+});
 
 
 
